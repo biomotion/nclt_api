@@ -10,7 +10,7 @@ dt_raw = np.dtype([
     ('x', np.uint16),
     ('y', np.uint16),
     ('z', np.uint16),
-    ('i', np.uint8),
+    ('intensity', np.uint8),
     ('ring', np.uint8),
 ])
 
@@ -18,7 +18,7 @@ dt_point = np.dtype([
     ('x', np.float32),
     ('y', np.float32),
     ('z', np.float32),
-    ('i', np.uint8),
+    ('intensity', np.uint8),
     ('ring', np.uint8)
 ])
 
@@ -32,7 +32,7 @@ def raw_data_to_points(np_data):
     result['x'] = np_data['x'].astype(np.float32) * 0.005 - 100.
     result['y'] = np_data['y'].astype(np.float32) * 0.005 - 100.
     result['z'] = np_data['z'].astype(np.float32) * 0.005 - 100.
-    result['i'] = np_data['i']
+    result['intensity'] = np_data['intensity']
     result['ring'] = ring_ids_hdl32e[np_data['ring']]
     return result
 
